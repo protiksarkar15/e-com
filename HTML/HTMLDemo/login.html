@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Login</title>
+        <style>
+            .red{
+                color: red;
+            }
+
+            .green{
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="courses.html">Courses</a>
+        
+        <form>
+            <br/><br/>
+            <center>
+                <h3>Login</h3>
+                Username: <input type="text" id="username" placeholder="enter username" onkeyup="validate()"><span id="uMand"></span><br/><br/>
+                Password: <input type="password" id="password" placeholder="enter password"><span id="pMand"></span><br/><br/>
+                <button onClick="login()"  id="loginButton" disabled>Login</button>
+                <button onClick="signUp()">Signup</button>
+            </center>
+        </form>
+        <center>
+            <p id="uName" class="red"></p>
+            <p id="pass" class="red"></p>
+            <p id="status" class="green"></p>
+            <p id="status1" class="red"></p>
+        </center>
+        <script>
+            function login()
+            {
+                event.preventDefault();
+                var uN = document.getElementById('username').value;
+                var ps = document.getElementById('password').value;
+
+                if(uN === ""){
+                    document.getElementById('uMand').innerHTML = "* Username Mandatory";
+                }else{
+                    document.getElementById('uMand').innerHTML = "";
+                    var uLen = uN.length;
+                    if(uLen < 5)
+                    {
+                        document.getElementById('uMand').innerHTML = "* Length should be more than 5 characters";
+                       
+                    }
+                    else{
+                        document.getElementById('uMand').innerHTML = "";
+                       
+                    }
+                }
+
+                if(uN != "" && ps === ""){
+                    document.getElementById('pMand').innerHTML = "* Password Mandatory";
+                }else{
+                    document.getElementById('pMand').innerHTML = "";
+                }
+
+                if(uN == "protik" && ps == "sarkar")
+                {
+                    document.getElementById('status1').innerHTML = "";
+                    document.getElementById('status').innerHTML = "Login Successful";
+                }else{
+                    document.getElementById('status').innerHTML = "";
+                    document.getElementById('status1').innerHTML = "Invalid Credentials";
+                }
+
+                document.getElementById('uName').innerHTML = "Username: "+uN;
+                document.getElementById('pass').innerHTML = "Password: "+ps;
+            }
+
+            function signUp()
+            {
+                event.preventDefault();
+                window.location.replace("register.html");
+            }
+
+            function validate()
+            {
+                event.preventDefault();
+                if(document.getElementById('username').value.length < 5)
+                {
+                    document.getElementById('loginButton').disabled = true;
+                }
+                else{
+                    document.getElementById('loginButton').disabled = false;
+                }
+            }
+        </script>
+    </body>
+</html>

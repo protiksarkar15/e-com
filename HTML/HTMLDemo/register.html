@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Sign Up</title>
+    </head>
+    <body>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="courses.html">Courses</a>
+        <form>
+                <br/><br/>
+                <center>
+                    <h3>Login</h3>
+                    Username: <input type="text" id="username" placeholder="enter username"><br/><br/>
+                    Password: <input type="password" id="password" placeholder="enter password"><br/><br/>
+                    Mobile Number: <input type="text" id="mobile" placeholder="enter mobile number"><br/><br/>
+                    Email: <input type="email" id="email" placeholder="enter email"><br/><br/>
+                    <button onClick="signUp()">Signup</button>
+                    <button onClick="login()">Login</button>
+                </center>
+            </form>
+            <center>
+                    <p id="uName"></p>
+                    <p id="pass"></p>
+                    <p id="mob"></p>
+                    <p id="eml"></p>
+                </center>
+            <script>
+                    function login()
+                    {
+    
+                        event.preventDefault();
+                        window.location.replace("login.html");
+                        
+                    }
+        
+                    function signUp()
+                    {
+                        event.preventDefault();
+                        var uN = document.getElementById('username').value;
+                        var ps = document.getElementById('password').value;
+                        var mN = document.getElementById('mobile').value;
+                        var em = document.getElementById('email').value;
+    
+                        document.getElementById('uName').innerHTML = "Username: "+uN;
+                        document.getElementById('pass').innerHTML = "Password: "+ps;
+                        document.getElementById('mob').innerHTML = "Mobile: "+mN;
+                        document.getElementById('eml').innerHTML = "Email: "+em;
+
+                        localStorage.setItem("username",uN);
+                        localStorage.setItem("password",ps);
+                    }
+
+                    function getUp(){
+                        event.preventDefault();
+                        var getUN = localStorage.getItem("username");
+                        var getPW = localStorage.getItem("password");
+                        document.getElementById('uName').innerHTML = getUN;
+                        document.getElementById('pass').innerHTML = getPW;
+                    }
+                </script>
+    </body>
+
+    
+</html>

@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Forms - Product</title>
+        <style>
+
+            body{
+                background:lavender;
+            }
+
+            form{
+                text-align: center;
+            }
+
+            h1{
+                text-align: center;
+                background-color: rosybrown;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Product Information Base</h1>
+        
+        <form>
+            Product Name:       <input type="text" id="pName"><br><br>
+            Product Id:         <input type="text" id="pId"><br><br>
+            Product Price:      <input type="text" id ="pPrice"><br><br>
+            Product Description:<textarea id="pDesc"></textarea><br><br>
+            <button onClick="addProduct()">Add Product</button><br><br>
+
+            <p id="pN"></p>
+            <p id="pI"></p>
+            <p id="pP"></p>
+            <p id="pD"></p>
+        </form>
+
+        <script>
+            function addProduct()
+            {
+                event.preventDefault();
+
+                var prodName = document.getElementById('pName').value;
+                var prodId = document.getElementById('pId').value;
+                var prodPrice = document.getElementById('pPrice').value;
+                var prodDesc = document.getElementById('pDesc').value;
+                
+                
+                console.log(prodName);
+                console.log(prodId);
+                console.log(prodPrice);
+                console.log(prodDesc);
+
+                if(prodName == '')
+                {
+                    document.getElementById('pN').innerHTML = "Enter Product Name";
+                }else{
+                    document.getElementById('pN').innerHTML = "Product Name"+": "+prodName;
+                }
+                
+                if(prodId == '')
+                {
+                    document.getElementById('pI').innerHTML = "Enter Product Id";
+                }else{
+                    document.getElementById('pI').innerHTML = "Product Id"+": "+prodId;
+                }
+
+                if(prodPrice == '')
+                {
+                    document.getElementById('pP').innerHTML = "Enter Product Price";
+                }else{
+                    document.getElementById('pP').innerHTML = "Product Price"+": "+prodPrice;
+                }
+
+                if(prodDesc == '')
+                {
+                    document.getElementById('pD').innerHTML = "Enter Product Description";
+                }else{
+                    document.getElementById('pD').innerHTML = "Product Description"+": "+prodDesc;
+                }
+                
+                
+                
+            }
+        </script>
+    </body>
+</html>

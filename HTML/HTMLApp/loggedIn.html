@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Welcome to HTML</title>
+        <style>
+            .headLogo{
+                width: 280px;
+                height: 140px;
+            }
+
+            body{
+                background-color: maroon;
+            }
+
+            .heading1{
+                color: beige;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif 
+            }
+
+            .divStyles{
+                background-color: bisque;
+            }
+
+            .cellStyle{
+                color: maroon;
+            }
+        </style>
+    </head>
+    <body>
+                <a href="index.html">Home</a>
+                <a href="login.html">Login</a>
+                <a href="tutorials.html">Tutorials</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html" onclick="logout()">Logout</a>
+        <center><h1 class="heading1">HTML WORLD</h1>
+        <img class="headLogo" src="images/htmlLogo.JPG"/></center>
+            <br/>
+        <div class = "divStyles">
+
+            <table border="1" width="100%" height="50%">
+
+                <tr>
+                    <td align="center">
+                            <br/>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/UB1O30fR-EE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <br/> <br/>
+                    </td>
+                    <td>
+                        <center><h3>HTML </h3></center>
+                            <ul>
+                                <li>HTML - HTML stands for Hyper Text Markup Language</li>
+                                <li>HTML is the standard markup language for Web pages</li>
+                                <li>HTML elements are the building blocks of HTML pages</li>
+                                <li>HTML elements are represented by <> tags</li>
+                            </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                        <center><h3> Learn HTML here</h3></center>
+                        <ul>
+                            <li>W3Schools - <a href="https://www.w3schools.com/html/">https://www.w3schools.com/html/</a></li>
+                            <li>Wikipedia - <a href="https://en.wikipedia.org/wiki/HTML">https://en.wikipedia.org/wiki/HTML</a></li>
+                            <li>Tutorialspoint - <a href="https://www.tutorialspoint.com/html/">https://www.tutorialspoint.com/html/</a></li>
+                            <li>javatpoint - <a href="https://www.javatpoint.com/html-tutorial">https://www.javatpoint.com/html-tutorial</a></li>
+                            <li>HTML All - <a href="https://www.w3schools.com/html/html_examples.asp">https://www.w3schools.com/html/html_examples.asp</a></li>
+                        </ul>
+                    </td>
+                    <td align="center">
+                        <br/>
+                        <img src="images/html example.JPG">
+                        <br/><br/>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+        <script>
+            function logout(){
+                event.preventDefault();
+                var userName = localStorage.getItem("username");
+                alert("User '"+userName+"' logged out successfully.");
+                localStorage.removeItem("username");
+                localStorage.removeItem("password");
+                window.location.replace('login.html');
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Login</title>
+        <style>
+            .headLogo{
+                width: 280px;
+                height: 140px;
+            }
+
+            body{
+                background-color: maroon;
+            }
+
+            .heading1{
+                color: beige;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            .label1{
+                color: maroon;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            .alignCont{
+                text-align: center;
+            }
+
+            .divStyles{
+                background-color: bisque;
+            }
+
+            .redWarn{
+                color: red;
+            }
+
+            .greenWarn{
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="tutorials.html">Tutorials</a>
+            <a href="contact.html">Contact Us</a>
+        <center><h1 class="heading1">HTML WORLD</h1>
+        <img class="headLogo" src="images/htmlLogo.JPG"/></center>
+        <br/>
+        <div class = "divStyles">
+            <br/>
+            <h3 class="label1" style="text-align: center;">Login</h3>
+            <form class="alignCont">
+                <span class="label1">Username: <input type="text" placeholder="Username" id="username" onkeyup="validate()"></span>
+                <br/><br/>
+                <span class="label1">Password: <input type="password" placeholder="Password" id="password"></span><br/>
+                <span id="mand" class="redWarn"></span><br/>
+                <span class="label1"><button onclick="loginHere()" id="loginButton" disabled>Login</button></span><br/><br/>
+            </form>
+            <center>
+                <span class="greenWarn" id="loginStatusSuccess"></span>
+                <span class="redWarn" id="loginStatusFailure"></span>
+            </center>
+        </div>
+        
+        <script>
+            function loginHere(){
+                event.preventDefault();
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+
+                if(username === "" || password === "")
+                {
+                    document.getElementById('loginStatusSuccess').innerHTML = "";
+                    document.getElementById('loginStatusFailure').innerHTML = "";
+                    document.getElementById('mand').innerHTML="*Username/Password Required";
+                }else if(username == "protik" && password == "sarkar"){
+                    document.getElementById('mand').innerHTML="";
+                    document.getElementById('loginStatusSuccess').innerHTML = "Login Successful";
+                    document.getElementById('loginStatusFailure').innerHTML = "";
+                    alert("Login is successful");
+                    localStorage.setItem("username",username);
+                    localStorage.setItem("password",password);
+                    window.location.replace("loggedIn.html");
+                }else{
+                    document.getElementById('loginStatusSuccess').innerHTML = "";
+                    document.getElementById('loginStatusFailure').innerHTML = "Login Failed";
+                }
+            }
+
+            function validate(){
+                event.preventDefault();
+                var nme = document.getElementById('username').value;
+                var nmeLength = nme.length;
+                if(nmeLength > 0)
+                {
+                    document.getElementById('loginButton').disabled = false;
+                }else{
+                    document.getElementById('loginButton').disabled = true;
+                }
+
+            }
+        </script>
+    </body>
+</html>
